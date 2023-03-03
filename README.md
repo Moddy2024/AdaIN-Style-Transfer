@@ -27,12 +27,11 @@ Once you have these dependencies installed, you can clone the Bird Classificatio
 https://github.com/Moddy2024/AdaIN-Style-Transfer.git
 ```
 # Key Directories and Files
-* [ADAIN.ipynb](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/ADAIN.ipynb) - This file shows how the dataset has been downloaded, how the data looks like, the transformations, data augmentations, architecture of the ResNet the training and the validation and test accuracy.
-* [training-sagemaker.ipynb](https://github.com/Moddy2024/Bird-Classification/blob/main/training-sagemaker.ipynb) - In this file I did even more data augmentations and trained for 7 more epochs with a lower learing rate to achieve higher accuracy.
-* [prediction.ipynb](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/prediction.ipynb) - This file loads the trained model file and shows how to do predictions on single images, multiple images contained in a folder and images(multiple or single) that can be uploaded to google colab temporarily to perform the prediction.
-* [results](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/results) - This directory contains the best trained model and the trained model saved after the last epoch.
-* [test-style](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-style) - This directory contains test images collected randomly from the internet of different categories, sizes and shape for performing the predictions and seeing the results.
-* [test-content](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-content) -
+* [ADAIN.ipynb](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/ADAIN.ipynb) - This file shows how the dataset has been downloaded, how the data looks like, the transformations, data augmentations, architecture of the model the training.
+* [prediction.ipynb](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/prediction.ipynb) - This file loads the trained model file and shows how to do predictions on single images.
+* [results](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/results) - This directory contains the results from some of the test images.
+* [test-style](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-style) - This directory contains test art images collected randomly from the internet.
+* [test-content](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-content) - This directory contains test content images collected randomly from the internet.
 # Dataset
 The Content Data which is the COCO Dataset has been downloaded and extracted using wget command in the terminal. The script downloads the train2014.zip file from the official COCO website and saves it as coco.zip in the specified directory. It then extracts the contents of the zip file using the ZipFile function from the zipfile module and saves it in the content-data directory. Once the extraction is complete, the zip file is removed using the os.remove function.
 ```bash
