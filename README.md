@@ -5,11 +5,12 @@ My implementation of ["Arbitrary Style Transfer in Real-time with Adaptive Insta
 
 AdaIN performs style transfer in the feature space by transferring feature statistics, specifically the channel-wise mean and variance. AdaIN layer takes the features produced by the encoder of both the content image and style image and simply aligns the mean and variance of the content feature to those of the style feature, producing the target feature t.
  
- as well as the ability to control the level of stylization by adjusting the number of style layers used in the AdaIN layer.
+ This model even has the ability to control the level of stylization by adjusting the number of style layers used in the AdaIN layer.
+ ![](https://github.com/Moddy2024/AdaIN-Style-Transfer/blob/main/results/degreesof-alpha.png)
  
 This implementation is in PyTorch framework. I have provided a user-friendly interface for users to upload their content and style images, adjust the parameters, and generate stylized images in real-time.
 
-The model has been trained for 200,000 iterations on a AWS Notebook Instance which took 16 hours approximately.
+The model has been trained for 200,000 iterations on a AWS Notebook Instance ml.p3.2xlarge(Nvidia Tesla V100 16GB) which took 16 hours approximately.
 
 # Dependencies
 * [PyTorch](https://pytorch.org/)
