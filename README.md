@@ -17,6 +17,7 @@ The model has been trained for 200,000 iterations on a AWS Notebook Instance whi
 * [PIL](https://pypi.org/project/Pillow/)
 * [Numpy](https://numpy.org/)
 * [OS](https://docs.python.org/3/library/os.html)
+* [zipfile](https://docs.python.org/3/library/zipfile.html)
 * [Shutil](https://docs.python.org/3/library/shutil.html#:~:text=Source%20code%3A%20Lib%2Fshutil.,see%20also%20the%20os%20module.)
 * [Torchvision](https://pytorch.org/vision/stable/index.html)
 * [torchinfo](https://github.com/TylerYep/torchinfo)
@@ -33,7 +34,36 @@ https://github.com/Moddy2024/AdaIN-Style-Transfer.git
 * [test-style](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-style) - This directory contains test images collected randomly from the internet of different categories, sizes and shape for performing the predictions and seeing the results.
 * [test-content](https://github.com/Moddy2024/AdaIN-Style-Transfer/tree/main/test-content) -
 # Dataset
+The Content Data which is the COCO Dataset has been downloaded and extracted using wget command in the terminal. The script downloads the train2014.zip file from the official COCO website and saves it as coco.zip in the specified directory. It then extracts the contents of the zip file using the ZipFile function from the zipfile module and saves it in the content-data directory. Once the extraction is complete, the zip file is removed using the os.remove function.
 ```bash
+!wget --no-check-certificate \
+    "http://images.cocodataset.org/zips/train2014.zip" \
+    -O "/home/ec2-user/SageMaker/coco.zip"
+
+local_zip = '/home/ec2-user/SageMaker/coco.zip'
+zip_ref   = zipfile.ZipFile(local_zip, 'r')
+!mkdir /home/ec2-user/SageMaker/content-data
+zip_ref.extractall('/home/ec2-user/SageMaker/content-data')
+zip_ref.close()
+os.remove(local_zip)
+print('The number of images present in COCO dataset are:',len(os.listdir('/home/ec2-user/SageMaker/content-data/train2014')))
+```
+The Style Dataset which is the WIKIArt Dataset has been downloaded and extracted from the Kaggle Competition painters by number
+```bash
+!ls -lha /home/ec2-user/SageMaker/kaggle.json
+!pip install -q kaggle
+!mkdir -p ~/.kaggle #Create the directory
+!cp kaggle.json ~/.kaggle/
+!chmod 600 /home/ec2-user/SageMaker/kaggle.json
+
+!kaggle competitions download -f train.zip -p '/home/ec2-user/SageMaker' -o painter-by-numbers
+local_zip = '/home/ec2-user/SageMaker/train.zip'
+zip_ref = zipfile.ZipFile(local_zip, 'r')
+!mkdir /home/ec2-user/SageMaker/style-data
+zip_ref.extractall('/home/ec2-user/SageMaker/style-data')
+zip_ref.close()
+os.remove(local_zip)
+print('The number of images present in WikiArt dataset are:',len(os.listdir('/home/ec2-user/SageMaker/train')))
 ```
 
 # Results
