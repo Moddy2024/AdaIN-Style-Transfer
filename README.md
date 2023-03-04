@@ -23,7 +23,7 @@ The model has been trained for 200,000 iterations on a AWS Notebook Instance ml.
 * [Torchvision](https://pytorch.org/vision/stable/index.html)
 * [torchinfo](https://github.com/TylerYep/torchinfo)
 
-Once you have these dependencies installed, you can clone the Bird Classification repository from GitHub:
+Once you have these dependencies installed, you can clone the AdaIN Style Transfer repository from GitHub:
 ```bash
 https://github.com/Moddy2024/AdaIN-Style-Transfer.git
 ```
